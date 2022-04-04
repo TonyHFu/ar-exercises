@@ -15,7 +15,7 @@ class Store < ActiveRecord::Base
   has_many :employees
   validates :name, length: {minimum: 3}
   validates :annual_revenue, numericality: {only_integer: true, greater_than_or_equal_to: 0}
-  validate :at_least_one_of_men_or_women
+  # validate :at_least_one_of_men_or_women
 
   def at_least_one_of_men_or_women 
     if :mens_apparel != true && :womens_apparel != true
@@ -35,8 +35,9 @@ class Employee < ActiveRecord::Base
 
 end
 
-print "Enter a store name: "
-storeName = gets.chomp
+# print "Enter a store name: "
+# storeName = gets.chomp
+storeName = "Null"
 
 store = Store.create(name: storeName, mens_apparel: false, womens_apparel: false)
 
